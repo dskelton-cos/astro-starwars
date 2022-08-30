@@ -1,7 +1,7 @@
 ---
-import BaseHead from '../components/BaseHead.astro'
-import Nav from '../components/Nav.astro'
-import StarShips from '../components/Starships.astro'
+import BaseHead from '@components/BaseHead.astro'
+import Header from '@components/Header.jsx'
+import StarShips from '@components/Starships.astro'
 import { SITE_TITLE, SITE_DESCRIPTION } from '../config'
 ---
 <!DOCTYPE html>
@@ -10,8 +10,7 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../config'
 		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
 	</head>
 	<body>
-		<Nav />
-
+		<Header client:load />
 
 	 <StarShips />
 	</body>

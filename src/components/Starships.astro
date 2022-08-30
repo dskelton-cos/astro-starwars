@@ -7,5 +7,5 @@ const allStarships = data?.results
 ---
 
 <div class="grid sm:grid-cols-2 xl:grid-cols-3 gap-4 md:gap-8">
-	{allStarships.map(item => <CardBlock title={item.name} content={item.manufacturer} />) }
+	{allStarships && allStarships.map(item => <CardBlock title={item.name} content={item.manufacturer} />) }
 </div>    
