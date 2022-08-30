@@ -6,8 +6,8 @@ import {
   ChartBarIcon,
   CursorArrowRaysIcon,
   XMarkIcon,
-} from '@heroicons/react/24/outline';
-import { ChevronDownIcon } from '@heroicons/react/20/solid';
+} from '@heroicons/react/24/solid/index.js';
+import { ChevronDownIcon } from '@heroicons/react/24/solid/index.js';
 
 const solutions = [
   {
