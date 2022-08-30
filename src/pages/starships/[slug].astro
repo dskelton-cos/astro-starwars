@@ -1,8 +1,9 @@
 ---
-import BaseHead from '../../components/BaseHead.astro'
-import Nav from '../../components/Nav.astro'
-import Question from '../../components/Question.astro'
-import { Slugify } from  '../../lib/helpers'
+import BaseHead from '@components/BaseHead.astro'
+import Header from '@components/Header.jsx'
+import Accordion from '@components/Accordion.jsx'
+
+import { Slugify } from  '@lib/helpers'
 
 export async function getStaticPaths() {
   const response = await fetch('https://swapi.dev/api/starships')
@@ -22,6 +23,18 @@ export async function getStaticPaths() {
 const { slug } = Astro.params;
 const { ship } = Astro.props
 
+const faqs = [
+  {
+    question: "Starship manufacturer",
+    answer:  ship.manufacturer,
+  },
+  {
+    question: "What's the cost?",
+    answer:
+      ship.cost_in_credits,
+  },
+];
+
 ---
 
 <!DOCTYPE html>
@@ -30,23 +43,17 @@ const { ship } = Astro.props
 		<BaseHead title={ship.name} description={ship.model} />
 	</head>
 	<body>
-  	<Nav />
+  		<Header client:load />
 		<div class="bg-white py-6 sm:py-8 lg:py-12">
     <div class="max-w-screen-2xl px-4 md:px-8 mx-auto">
-      <!-- text - start -->
+
       <div class="mb-10 md:mb-16">
         <h2 class="text-gray-800 text-2xl lg:text-3xl font-bold text-center mb-4 md:mb-6">{ship.name}</h2>
-
         <p class="max-w-screen-md text-gray-500 md:text-lg text-center mx-auto">{ship.model}</p>
       </div>
-      <!-- text - end -->
 
-      <div class="flex flex-col max-w-screen-sm border-t mx-auto">
+      <Accordion client:load  faqs={faqs}/>
 
-        <Question question={`Manufacturer`} answer={ship.manufacturer} />
-        <Question question={`Crew`} answer={ship.crew} />
-      
-      </div>
     </div>
   </div>
 	</body>
