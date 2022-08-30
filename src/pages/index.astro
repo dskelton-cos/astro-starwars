@@ -1,0 +1,18 @@
+---
+import BaseHead from '../components/BaseHead.astro'
+import Nav from '../components/Nav.astro'
+import StarShips from '../components/Starships.astro'
+import { SITE_TITLE, SITE_DESCRIPTION } from '../config'
+---
+<!DOCTYPE html>
+<html lang="en-us">
+	<head>
+		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+	</head>
+	<body>
+		<Nav />
+
+
+	 <StarShips />
+	</body>
+</html>

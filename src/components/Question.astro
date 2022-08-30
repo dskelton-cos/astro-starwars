@@ -1,0 +1,18 @@
+---
+const {question, answer} = Astro.props
+---   
+<!-- question - start -->
+  <div class="border-b" x-data="{ expanded: false }">
+    <div @click="expanded = ! expanded" class="flex justify-between text-black hover:text-indigo-500 active:text-indigo-600 cursor-pointer gap-2 py-4">
+      <span class="md:text-lg font-semibold transition duration-100">{question}</span>
+
+      <span class="text-indigo-500">
+        <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+        </svg>
+      </span>
+    </div>
+
+    <p x-show="expanded" x-collapse class="text-gray-500 mb-4">{answer}</p>
+  </div>
+<!-- question - end -->
